@@ -10,11 +10,11 @@ library(googlesheets4)
 gs4_deauth()
 
 # Load the shapefiles, layer="BGD_2" for zilla
-zilla<- readOGR("covid19_bd/data/gadm36_BGD_shp/", layer = "gadm36_BGD_2")
+zilla<- readOGR("/home/rana2hin/ShinyApps/covid19_bd/data/gadm36_BGD_shp/", layer = "gadm36_BGD_2")
 zilla_gg<- fortify(zilla)
 
 # layer="BGD_1" for divisions. to know more and download the shapefiles from https://gadm.org
-div<- readOGR("covid19_bd/data/gadm36_BGD_shp/", layer = "gadm36_BGD_1")
+div<- readOGR("/home/rana2hin/ShinyApps/covid19_bd/data/gadm36_BGD_shp/", layer = "gadm36_BGD_1")
 div_gg<- fortify(div)
 
 dist_data_url<- "https://docs.google.com/spreadsheets/d/1OejY671NcewEMf_kdsXDjgOC9l9kZy6QtRspm-WA1us/edit#gid=315257534"
@@ -46,7 +46,14 @@ ui<- dashboardPage(skin = "green",
                           label = "Search..."),
         sidebarMenu(
             menuItem("View On Map", tabName = "map", icon = icon("map-marked-alt")),
-            menuItem("Most Affected Cities", tabName = "cities", icon = icon("chart-bar"))
+            menuItem("Most Affected Cities", tabName = "cities", icon = icon("chart-bar")),
+            menuItem("View Source Codes", href = "https://github.com/rana2hin/covid19_bd", badgeLabel = "new", badgeColor = "red", icon = icon("github")),
+            menuItem("About Developer", icon = icon("info"),
+                     menuSubItem("Rana Tuhin", href = "https://facebook.com/rana2hin", icon = icon("facebook")),
+                     menuSubItem("Tuhin Rana", href = "https://www.linkedin.com/in/rana2hin/", icon = icon("linkedin")),
+                     menuSubItem("R programming Book", href = "https://rbook.rana2hin.com", icon = icon("book-open")),
+                     menuSubItem("Tuhin's Diary", href = "https://rana2hin.com", icon = icon("globe-asia"))
+                     )
         )
     ),
     dashboardBody(
