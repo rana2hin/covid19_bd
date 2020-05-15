@@ -1,3 +1,5 @@
 # COVID19 BD
 Shiny Dahsboard of COVID19 data of Bangladesh.
-This ReadMe file will be updated Later.
+
+first, Download and Unzip the "gadm36_BGD_shp.zip" file.
+then, follow my codes.
